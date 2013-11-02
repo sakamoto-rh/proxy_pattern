@@ -14,7 +14,4 @@ class BadProjectManager < ProjectManager
   end
 
 end
-
-  
-
-end 
+ 
