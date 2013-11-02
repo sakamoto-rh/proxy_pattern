@@ -9,7 +9,10 @@ class Tester
   # == 製品をテストします
   #
   def execute
-    product = Product.instance
     product.quality += 1
+  end
+
+  def product
+    Product.instance
   end
 end
