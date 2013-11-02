@@ -8,7 +8,7 @@ class Programmer
   #
   attr_accessor :tired_point_programmer #テスター疲労度
   def initialize
-    @tired_point_programmer = 1
+    @tired_point_programmer ||= 1
   end
 
   def execute(product)

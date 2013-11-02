@@ -7,7 +7,7 @@ class Tester
   #
   attr_accessor :tired_point_test #テスター疲労度
   def initialize
-    @tired_point_test = 1
+    @tired_point_test ||= 1
   end
 
   def execute(product)
@@ -16,16 +16,16 @@ class Tester
 
     if @tired_point_test == 0
       p "今日からまた頑張ります！！！"
-    elsif @tired_point_test < 5
+    elsif @tired_point_test == (5..9)
       p "【テスターが発言している。】"
       p "まだまだ楽勝です！"
-    elsif < 10
+    elsif == (10..14)
       p "【テスターが文句をいっている】"
       p "バグばっかりじゃねーかよ。。。"
-    elsif < 15
+    elsif == (15..19)
       p "【テスターの様子がおかしい。】"
       p "最近、夢にテストシナリオが出てくる。。。"
-    elsif < 20
+    elsif == 20
       p "【テスターから連絡があった。】"
       p "体調不良で今日休みます。。。"
       @tired_point_test = 0
