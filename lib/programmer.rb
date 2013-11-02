@@ -10,7 +10,10 @@ class Programmer
   # == 製品を開発します
   #
   def execute
-    product = Product.instance
     product.progress += 1
+  end
+
+  def product
+    Product.instance
   end
 end
