@@ -1,0 +1,5 @@
+#
+# = プログラマクラスです。
+#
+class Programmer
+end
