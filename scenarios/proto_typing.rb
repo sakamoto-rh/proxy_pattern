@@ -29,18 +29,18 @@ module Scenarios
         members[:project_customer].execute
 
         if product_progress > next_check
-        next_check += 10
+          next_check += 10
 
-        #顧客は4分の3の確率でパニックに陥る。
-        puts "顧客が様子を見に来た..."
-        wait 2
+          #顧客は3分の2の確率でパニックに陥る。
+          puts "顧客が様子を見に来た..."
+          wait 2
 
-        random = rand(3)
-        puts ["顧客は満足そうだ。", "顧客の理解の範疇を超えた!!", "顧客が思っていたモノと違っている!!"][random]
-        if random > 0
-         members[:customer].panic!
+          random = rand(2)
+          puts ["顧客は満足そうだ。", "顧客の理解の範疇を超えた!!", "顧客が思っていたモノと違っている!!"][random]
+          if random > 0
+            members[:customer].panic!
+          end
         end
-
       end
 
 
@@ -49,4 +49,3 @@ module Scenarios
     end
   end
 end
-
