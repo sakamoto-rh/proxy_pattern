@@ -13,7 +13,8 @@ class Customer
   attr_accessor :angry_mater
   #
   # == 営業を呼び出してクレームをする
-  #
+  # 
+  
   def initialize
     @angry_mater = 20
   end
@@ -66,11 +67,11 @@ class Customer
   #
   # == 納品物を受け取ります
   #
-  def receive
+  def execute
     if product.progress > 100 && product.qualify > 80
       happy!
     else
-      raise ArgumentError.new("このやろう！！")
+      claim
     end
   end
 

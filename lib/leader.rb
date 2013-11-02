@@ -52,26 +52,36 @@ class Leader
     else REST
       p REST_MESSAGE
     end
+  #
+  # プロジェクトマネージャー の連絡先を知っています
+  # == プログラマーの連絡先を知っています
+  #
+  def project_manager
+    @project_manager ||= ProjectManager.new
   end
-  ##
-  ## プロジェクトマネージャー の連絡先を知っています
-  ##
-  #def project_manager
-  #  @project_manager || = ProjectManager.new
-  #end
 
-  ##
-  ## == プログラマーの連絡先を知っています
-  ##
-  #def programmer
-  #  @programmer || = Programmer.new
-  #end
+  #
+  # == プログラマーの連絡先を知っています
+  #
+  def programmer
+    @programmer ||= Programmer.new
+  end
 
-  ##
-  ## == テスターの連絡先を知っています
-  ##
-  #def tester
-  #  @tester || = Tester.new
-  #end
+  #
+  # == リーダーの連絡先を知っています
+  #
+  def leader
+    @leader ||= Leader.new
+  end
 
+  #
+  # == 営業の連絡先を知っています
+  #
+  def sales
+    @sales ||= Sales.new
+  end
+
+  def product
+    Product.instance
+  end
 end
