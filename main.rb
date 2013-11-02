@@ -8,7 +8,7 @@ Dir.glob("./scenarios/*.rb"){|file| require file}
 class Main
   def execute
     [ Scenarios::ProtoTyping, Scenarios::ProductDevelopment, Scenarios::Test, Scenarios::Delivery].each do |klass|
-      klass.new.execute { customer: customer, project_manager: project_manager, sales: sales }
+      klass.new.execute({ customer: customer, project_manager: project_manager, sales: sales })
     end
   end
 
