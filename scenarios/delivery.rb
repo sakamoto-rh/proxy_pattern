@@ -5,16 +5,17 @@ module Scenarios
   class Delivery
     def execute(members)
       product = Product.instance
+
       puts "顧客「プログラムは出来ましたか？＾＾」"
+      wait 2
+
       3.times do
        print "."
-       wait 1.5
+       wait 2
       end
       puts ""
-     
-      members[:customer]
-     
-    end
 
+      members[:customer].execute
+    end
   end
 end
