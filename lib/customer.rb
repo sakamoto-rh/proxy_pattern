@@ -62,6 +62,7 @@ class Customer
   #
   def panic!
     (product.progress < 50) ? "大変！今すぐリーダーを呼んでください" : "HAaaaAAaAAaAAAaAAAAAAA" 
+    programmer.call_from_customer
   end
 
   #
