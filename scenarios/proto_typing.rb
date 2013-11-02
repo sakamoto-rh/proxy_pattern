@@ -8,19 +8,45 @@ module Scenarios
     #引数
     #hashで渡して下さい
     #　members
-    #    productのインスタンス
     #    customerのインスタンス
     #    project_managerのインスタンス
     #    salesのインスタンス
     def execute(members)
+      product = Product.instance
 
-     #productの進捗が25になるまで繰り返す。
+      puts "プロトタイプ開発を行います"
+      wait 2
+      puts "Productの進捗率：#{product.progress}"
+      wait 2
+      puts "Productの完成度：#{product.quality}"
+      wait 2
 
-     #開発する
+      #productの進捗が25になるまで繰り返す。
+      next_check = 10
+      while product.progress < 25
 
-     #productの進捗が10毎にcustomerに見せる。
+        #開発する
+        members[:project_customer].execute
 
-     #最終的にもう一回見せる。
+        if product_progress > next_check
+        next_check += 10
+
+        #顧客は4分の3の確率でパニックに陥る。
+        puts "顧客が様子を見に来た..."
+        wait 2
+
+        random = rand(3)
+        puts ["顧客は満足そうだ。", "顧客の理解の範疇を超えた!!", "顧客が思っていたモノと違っている!!"][random]
+        if random > 0
+         members[:customer].panic!
+        end
+
+      end
+
+
+      #最終的にもう一回見せる。
+      members[:project_manager]
     end
   end
 end
+
