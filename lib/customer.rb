@@ -6,31 +6,72 @@ require './lib/leader'
 # = 顧客クラスです。あらぶっています。
 #   クレバーな顧客なので、要因の連絡先をそれぞれ知っています。
 #
+require './lib/base'
+
 class Customer
+  include Base
   attr_accessor :angry_mater
   #
   # == 営業を呼び出してクレームをする
-  #
-  def claim; end
+  # 
+  
+  def initialize
+    @angry_mater = 20
+  end
+  
+  def claim
+
+    project_manager.claim self
+
+    insults ||= Array.new
+
+    #怒り度合い
+    if (@angry_mater < 50)
+
+      #進捗に関するクライム
+      if  product.progress < 20
+        insults << "嘘だよね・・土下座してもらおう！"
+      elsif product.progress < 50
+        insults << "開発スピード、遅くね？　金もらってるんだから、ちゃんとやれよ、このハゲ！"
+      else 
+        insults << "スケジュール通りにやってくだだい！"
+      end
+
+      #品質に関するクライム
+      if  product.quality < 50
+        insults << "このシステムって子供に作らせた？？Quality低すぎるやん"
+      end
+
+    else
+      insults << "お前、死にたいのよね・・・俺を怒らせるってこと死にたいよね・・逃がさないぞ！！"
+    end
+
+    return  insults.each { |mess| puts mess }
+
+  end
 
   #
   # == 進捗が遅いとおいかり
   #    各所に当たり散らします
-  def angry; end
+  def angry
+    "信じられない、このやる気のなさ・・別の開発会社にお願いしようかな" if @angry_mater > 60
+  end
 
   #
   # == 発狂中、プログラマーに直接電話します
   #
-  def panic!; end
+  def panic!
+    (product.progress < 50) ? "大変！今すぐリーダーを呼んでください" : "HAaaaAAaAAaAAAaAAAAAAA" 
+  end
 
   #
   # == 納品物を受け取ります
   #
-  def receive(product)
+  def execute
     if product.progress > 100 && product.qualify > 80
       happy!
     else
-      raise ArgumentError.new("このやろう！！")
+      claim
     end
   end
 
@@ -77,6 +118,10 @@ class Customer
   #
   def tester
     @tester ||= Tester.new
+  end
+
+  def product
+    Product.instance
   end
 end
 

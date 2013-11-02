@@ -1,7 +1,10 @@
 #
 # = テスタークラスです。プログラマーと製品の完成度をあげることができます。
 #
+require './lib/base'
+
 class Tester
+  include Base
   #
   # == 製品をテストします
   #
@@ -31,5 +34,9 @@ class Tester
       @tired_point_test = 0
       product.quality -= 1
     end
+  end
+
+  def product
+    Product.instance
   end
 end
