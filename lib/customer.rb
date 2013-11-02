@@ -44,35 +44,35 @@ class Customer
   # == プログラマーの連絡先を知っています
   #
   def programmer
-    @programmer || = Programmer.new
+    @programmer ||= Programmer.new
   end
 
   #
   # == リーダーの連絡先を知っています
   #
   def leader
-    @leader || = Leader.new
+    @leader ||= Leader.new
   end
 
   #
   # == 営業の連絡先を知っています
   #
   def sales
-    @sales || = Sales.new
+    @sales ||= Sales.new
   end
 
   #
   # == PMの連絡先を知っています
   #
   def project_manager
-    @project_manager || = ProjectManager.new
+    @project_manager ||= ProjectManager.new
   end
 
   #
   # == Testerの連絡先を知っています
   #
   def tester
-    @tester || = Tester.new
+    @tester ||= Tester.new
   end
 end
 
