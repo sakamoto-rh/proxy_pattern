@@ -15,7 +15,7 @@ module Scenarios
       end
       puts ""
 
-      members[:customer].execute
+      members[:customer].execute(product, self)
     end
   end
 end
