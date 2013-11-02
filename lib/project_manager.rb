@@ -38,9 +38,6 @@ class ProjectManager
   	product
   end
 
-
-  private
-
   def leader
     @leader ||= Leader.new
   end
