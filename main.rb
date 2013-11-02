@@ -10,6 +10,9 @@ class Main
     [ Scenarios::ProtoTyping, Scenarios::ProductDevelopment, Scenarios::Test, Scenarios::Delivery].each do |klass|
       klass.new.execute({ customer: customer, project_manager: project_manager, sales: sales })
     end
+  rescue Exception => ex
+    p "このプロジェクトは撤退だ！！！！！！！！！！！！！！！！！！！！！！！！！！！"
+    raise ex
   end
 
   def customer
