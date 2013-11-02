@@ -1,3 +1,7 @@
+require './lib/tester'
+require './lib/sales'
+require './lib/project_manager'
+require './lib/leader'
 #
 # = 顧客クラスです。あらぶっています。
 #   クレバーな顧客なので、要因の連絡先をそれぞれ知っています。
