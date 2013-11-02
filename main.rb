@@ -4,6 +4,7 @@
 Dir.glob("./lib/*.rb"){|file| require file}
 Dir.glob("./scenarios/*.rb"){|file| require file}
 
+
 class Main
   def execute
     product = Product.instance
