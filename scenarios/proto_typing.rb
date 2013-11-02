@@ -8,13 +8,14 @@ module Scenarios
     #引数
     #hashで渡して下さい
     #　members
-    #    productのインスタンス
     #    customerのインスタンス
     #    project_managerのインスタンス
     #    salesのインスタンス
     def execute(members)
+     product = Product.instance
 
      #productの進捗が25になるまで繰り返す。
+
 
      #開発する
 
