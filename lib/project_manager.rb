@@ -7,35 +7,11 @@ class ProjectManager
   include Base
 
   def claim(customer)
-  	Sales.new.execute
+    Sales.new.execute
   end
 
   def execute(customer, scenario=nil)
-  	product = Product.instance
-
-    return product if customer.angry_mater < 100
-
-    case scenario.instance_of?
-  	when Scenarios::ProtoTyping
-      leader.execute(product)
-  	when Scenarios::ProductDevelopment
-      programmer.execute(product)
-  	when Scenarios::Test
-      tester.execute(product)
-  	when Scenarios::Delivery
-      leader.execute(product) rescue nil
-      programmer.execute(product) rescue nil
-      tester.execute(product) rescue nil
-
-      begin
-        customer.receive(product)
-      rescue
-        raise ArgumentError.new('この金額でやってられるか!!') if
-          !product.respond_to?('price') || product.price < 300_000
-      end
-  	end
-
-  	product
+    raise "abstract method !!"
   end
 
   def leader
@@ -48,5 +24,9 @@ class ProjectManager
 
   def tester
     @tester = Tester.new
+  end
+
+  def product
+    Product.instance
   end
 end
