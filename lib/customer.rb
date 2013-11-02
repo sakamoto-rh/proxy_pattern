@@ -44,10 +44,10 @@ class Customer
       end
 
     else
-      insults << "お前、死にたいのよね・・・俺を怒らせるってこと死にたいよね・・逃がさないぞ！！"
+      raise ArgumentError.new('お前、死にたいのよね・・・俺を怒らせるってこと死にたいよね・・逃がさないぞ！！')
     end
 
-    return  insults.each { |mess| puts mess }
+    return  insults.each { |mess| puts mess ; wait 2 }
 
   end
 
