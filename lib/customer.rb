@@ -18,33 +18,59 @@ class Customer
   # == 発狂中、プログラマーに直接電話します
   #
   def panic!; end
+
   #
-  # == 納品すると喜びます
+  # == 納品物を受け取ります
   #
-  def happy!; end
+  def receive(product)
+    if product.progress > 100 && product.qualify > 80
+      happy!
+    else
+      raise ArgumentError.new("このやろう！！")
+    end
+  end
+
 
   private
 
+  #
+  # == 納品すると喜びます
+  #
+  def happy!
+    p "ありがとう！！！"
+  end
+
+  #
+  # == プログラマーの連絡先を知っています
+  #
   def programmer
     @programmer || = Programmer.new
   end
 
+  #
+  # == リーダーの連絡先を知っています
+  #
   def leader
     @leader || = Leader.new
   end
 
+  #
+  # == 営業の連絡先を知っています
+  #
   def sales
     @sales || = Sales.new
   end
 
+  #
+  # == PMの連絡先を知っています
+  #
   def project_manager
     @project_manager || = ProjectManager.new
   end
 
-  def programmer
-    @programmer || = Programmer.new
-  end
-
+  #
+  # == Testerの連絡先を知っています
+  #
   def tester
     @tester || = Tester.new
   end
