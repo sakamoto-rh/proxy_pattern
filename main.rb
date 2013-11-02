@@ -2,12 +2,14 @@
 # = メイン処理クラス
 #
 Dir.glob("./lib/*.rb"){|file| require file}
-Dir.glob("./schenarios/*.rb"){|file| require file}
+Dir.glob("./scenarios/*.rb"){|file| require file}
 
 class Main
   def execute
     product = Product.instance
-    Programmer.new.execute product
+    [ Scenarios::ProtoTyping, Scenarios::ProductDevelopment, Scenarios::Test, Scenarios::Delivery].each do |klass|
+      klass.new.execute
+    end
   end
 end
 
