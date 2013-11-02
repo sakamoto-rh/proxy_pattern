@@ -75,6 +75,3 @@ class Leader
   #end
 
 end
-
-leader = Leader.new
-leader.execute
